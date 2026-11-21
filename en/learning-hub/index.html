@@ -35,8 +35,8 @@ a{color:#2b412b}a:hover{color:#9c4a2a}
 @supports (animation-timeline: view()){.reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 38%}}
 .poster{position:relative;display:flex;align-items:flex-end;min-height:300px;padding:28px;box-sizing:border-box;color:#f8f5ee;text-decoration:none;overflow:hidden;transition:transform .35s ease}
 .poster:hover{color:#f8f5ee;transform:scale(1.012)}
-.play{position:absolute;left:50%;top:46%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;border:1px solid rgba(248,245,238,.7);display:flex;align-items:center;justify-content:center;transition:background .25s ease}
-.poster:hover .play{background:rgba(248,245,238,.16)}
+.play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;border:1px solid rgba(248,245,238,.85);background:rgba(26,26,26,.62);display:flex;align-items:center;justify-content:center;transition:background .25s ease}
+.poster:hover .play{background:rgba(26,26,26,.85)}
 .field{width:100%;box-sizing:border-box;border:0;border-bottom:1px solid rgba(248,245,238,.45);background:transparent;color:#f8f5ee;font:inherit;font-size:17px;padding:14px 0;outline-offset:6px}
 .field::placeholder{color:rgba(248,245,238,.62)}
 @media (prefers-reduced-motion: reduce){.ring{animation:none;transform:rotateX(-14deg) rotateY(24deg)}.rise,.reveal{animation:none}.btn,.poster{transition:none}}
@@ -69,7 +69,7 @@ html{scroll-behavior:smooth}
 .tile-text{font-size:15.5px;color:#3a3a3a;max-width:460px}
 .tile-link{margin-top:8px;font-size:14.5px;font-weight:600;color:#2b412b}
 .arrow{display:inline-block;transition:transform .3s ease}.tile:hover .arrow{transform:translateX(6px)}
-.poster{background-size:cover;background-position:center;aspect-ratio:16/9;min-height:0!important}
+.poster{aspect-ratio:16/9;min-height:0!important}
 .poster.has-thumb::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,.05) 40%,rgba(20,20,20,.62) 100%)}
 .poster>span{position:relative}.poster>.play{position:absolute}
 button.poster{border:0;cursor:pointer;font:inherit;text-align:left;width:100%}
@@ -175,9 +175,8 @@ button.poster{border:0;cursor:pointer;font:inherit;text-align:left;width:100%}
 <h2 class="serif" style="margin: 0 0 64px; font-weight: 400; font-size: clamp(32px, 3.8vw, 46px); line-height: 1.1; letter-spacing: -.015em; max-width: 720px">Start free. Go deeper when you are ready to work on your own city.</h2>
 
 <article class="reveal" style="display: flex; flex-wrap: wrap; align-items: center; gap: 56px; padding: 0 0 72px">
-<button type="button" class="poster" data-tilt data-modal="https://player.vimeo.com/video/1192788769?autoplay=1&amp;dnt=1" data-kind="video" data-title="Cities Are Alive — course introduction" style="flex: 1 1 460px; min-width: 0; background: linear-gradient(140deg, #2b412b 0%, #3d5a3d 60%, #56764f 100%)" aria-label="Watch the introduction to Cities Are Alive, 2 minutes 28 seconds">
+<button type="button" class="poster" data-tilt data-modal="https://player.vimeo.com/video/1192788769?autoplay=1&amp;dnt=1" data-kind="video" data-title="Cities Are Alive — course introduction" style="flex: 1 1 460px; min-width: 0; background: #2b412b url('../../assets/video-cities-are-alive.jpg') center / cover no-repeat" aria-label="Watch the introduction to Cities Are Alive, 2 minutes 28 seconds">
 <span class="play" aria-hidden="true"><svg width="20" height="22" viewBox="0 0 20 22" aria-hidden="true"><path d="M2 1.5v19l16-9.5z" fill="#f8f5ee"></path></svg></span>
-<span style="font-size: 12.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase">Watch the introduction · 2:28</span>
 </button>
 <div style="flex: 1 1 420px; min-width: 0">
 <div style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #2b412b; margin-bottom: 14px">Free · Introductory course</div>
@@ -202,9 +201,8 @@ button.poster{border:0;cursor:pointer;font:inherit;text-align:left;width:100%}
 <button type="button" class="textlink" data-modal="https://fatimebarbara.github.io/city-intelligence-course/OVERVIEW_mastercourse.html" data-kind="page" data-title="City Intelligence — course outline">See the course outline</button>
 </div>
 </div>
-<button type="button" class="poster" data-tilt data-modal="https://player.vimeo.com/video/1187306030?autoplay=1&amp;dnt=1" data-kind="video" data-title="City Intelligence Mastercourse — course introduction" style="flex: 1 1 460px; min-width: 0; background: linear-gradient(140deg, #1a1a1a 0%, #3a2a22 55%, #9c4a2a 100%)" aria-label="Watch the introduction to the City Intelligence mastercourse">
+<button type="button" class="poster" data-tilt data-modal="https://player.vimeo.com/video/1187306030?autoplay=1&amp;dnt=1" data-kind="video" data-title="City Intelligence Mastercourse — course introduction" style="flex: 1 1 460px; min-width: 0; background: #1a1a1a url('../../assets/video-city-intelligence.jpg') center / cover no-repeat" aria-label="Watch the introduction to the City Intelligence mastercourse">
 <span class="play" aria-hidden="true"><svg width="20" height="22" viewBox="0 0 20 22" aria-hidden="true"><path d="M2 1.5v19l16-9.5z" fill="#f8f5ee"></path></svg></span>
-<span style="font-size: 12.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase">Watch the introduction</span>
 </button>
 </article>
 </section>
@@ -330,15 +328,6 @@ button.poster{border:0;cursor:pointer;font:inherit;text-align:left;width:100%}
       els.forEach(function(el){el.classList.add('reveal-io');io.observe(el);});
     }
   }
-  // video stills: ask Vimeo for each video's thumbnail; the colour panel stays if this fails
-  d.querySelectorAll('.poster[data-kind="video"]').forEach(function(b){
-    var m=(b.getAttribute('data-modal')||'').match(/video\/(\d+)/); if(!m||!window.fetch) return;
-    fetch('https://vimeo.com/api/oembed.json?width=1280&url='+encodeURIComponent('https://vimeo.com/'+m[1]))
-      .then(function(r){return r.ok?r.json():null;})
-      .then(function(j){ if(!j||!j.thumbnail_url) return; var im=new Image();
-        im.onload=function(){b.style.backgroundImage='url("'+j.thumbnail_url+'")';b.classList.add('has-thumb');}; im.src=j.thumbnail_url; })
-      .catch(function(){});
-  });
   var calm=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   // 3D tilt: boxes lean a little toward the cursor
   if(!calm && window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches){
