@@ -35,27 +35,41 @@ a{color:#2b412b}a:hover{color:#9c4a2a}
 @supports (animation-timeline: view()){.reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 38%}}
 .poster{position:relative;display:flex;align-items:flex-end;min-height:300px;padding:28px;box-sizing:border-box;color:#f8f5ee;text-decoration:none;overflow:hidden;transition:transform .35s ease}
 .poster:hover{color:#f8f5ee;transform:scale(1.012)}
-.play{position:absolute;left:50%;top:46%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;border:1px solid rgba(248,245,238,.7);display:flex;align-items:center;justify-content:center;transition:background .25s ease}
-.poster:hover .play{background:rgba(248,245,238,.16)}
+.play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;border:1px solid rgba(248,245,238,.85);background:rgba(26,26,26,.62);display:flex;align-items:center;justify-content:center;transition:background .25s ease}
+.poster:hover .play{background:rgba(26,26,26,.85)}
 .field{width:100%;box-sizing:border-box;border:0;border-bottom:1px solid rgba(248,245,238,.45);background:transparent;color:#f8f5ee;font:inherit;font-size:17px;padding:14px 0;outline-offset:6px}
 .field::placeholder{color:rgba(248,245,238,.62)}
 @media (prefers-reduced-motion: reduce){.ring{animation:none;transform:rotateX(-14deg) rotateY(24deg)}.rise,.reveal{animation:none}.btn,.poster{transition:none}}
 
 html{scroll-behavior:smooth}
+.lights{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.btn-light{background:#f8f5ee;color:#1a1a1a}.btn-light:hover{background:#fff;color:#1a1a1a}
+.cards{display:grid;gap:24px;perspective:1400px}
+.card3d{--edge:#9fbfbf;--mx:50%;--my:0%;position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid #e6e0d2;padding:36px 34px 32px;box-shadow:0 1px 0 var(--edge),0 2px 0 var(--edge),0 3px 0 var(--edge),0 4px 0 var(--edge),0 5px 0 var(--edge),0 6px 0 var(--edge),0 10px 14px rgba(26,26,26,.10),0 26px 48px rgba(26,26,26,.16);transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s ease;will-change:transform}
+.card3d.tilting{transition:transform .08s linear,box-shadow .3s ease}
+.card3d:hover{box-shadow:0 1px 0 var(--edge),0 2px 0 var(--edge),0 3px 0 var(--edge),0 4px 0 var(--edge),0 5px 0 var(--edge),0 6px 0 var(--edge),0 18px 22px rgba(26,26,26,.14),0 44px 70px rgba(26,26,26,.26)}
+.card3d::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s ease;background:radial-gradient(420px circle at var(--mx) var(--my),rgba(255,255,255,.34),rgba(255,255,255,0) 60%)}
+.card3d:hover::after{opacity:1}
+.card3d>*{transform:translateZ(34px)}
+.c-teal{background:#d3e6e6;border-color:#b3cfcf;--edge:#9fbfbf}.c-ink{background:#1f2f1c;border-color:#1f2f1c;color:#f8f5ee;--edge:#0f180e}
+.c-teal .tag{color:#1f5052}.c-ink .tag{color:#e3c27a}.c-ink p{color:rgba(248,245,238,.86)!important}.c-ink a{color:#f8f5ee}.c-ink a:hover{color:#e3c27a}
+.c-ink .tile-eyebrow{color:#e3c27a}.c-ink .tile-text{color:rgba(248,245,238,.86)}.c-ink .tile-link{color:#f8f5ee}.tile.c-ink,.tile.c-ink:hover{color:#f8f5ee}
+.c-teal .tile-eyebrow{color:#1f5052}
+.c-ink::after{background:radial-gradient(420px circle at var(--mx) var(--my),rgba(227,194,122,.20),rgba(227,194,122,0) 60%)}
+.card3d>a:last-child,.card3d .tile-link{margin-top:auto}
 .book-stage{perspective:1400px;display:flex;justify-content:center;padding:20px 0}
 .book{position:relative;width:260px;height:390px;transform-style:preserve-3d;transform:rotateY(-30deg) rotateX(3deg);animation:bookturn 9s ease-in-out infinite alternate}
 .book img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transform:translateZ(20px);border-radius:2px 4px 4px 2px;box-shadow:inset 6px 0 10px rgba(0,0,0,.18)}
 .book::before{content:"";position:absolute;top:4px;left:0;width:38px;height:calc(100% - 8px);transform:translateX(238px) rotateY(90deg);background:repeating-linear-gradient(90deg,#fdfbf6 0,#fdfbf6 2px,#e2dccd 3px)}
 .book::after{content:"";position:absolute;inset:0;transform:translateZ(-20px);background:#22331f;border-radius:2px 4px 4px 2px;box-shadow:-26px 22px 44px rgba(26,26,26,.28)}
 @keyframes bookturn{from{transform:rotateY(-32deg) rotateX(3deg)}to{transform:rotateY(-16deg) rotateX(1deg)}}
-.tile{display:flex;flex-direction:column;gap:10px;padding:36px 0;border-bottom:1px solid #d9d3c4;text-decoration:none;color:#1a1a1a;transition:background .3s ease,padding .3s ease}
-.tile:hover{color:#1a1a1a;background:#fff;padding-left:20px;padding-right:20px}
+.tile{gap:10px;text-decoration:none;color:#1a1a1a}.tile:hover{color:#1a1a1a}
 .tile-eyebrow{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#5c5c5c}
 .tile-title{font-size:28px;line-height:1.2}
 .tile-text{font-size:15.5px;color:#3a3a3a;max-width:460px}
 .tile-link{margin-top:8px;font-size:14.5px;font-weight:600;color:#2b412b}
 .arrow{display:inline-block;transition:transform .3s ease}.tile:hover .arrow{transform:translateX(6px)}
-.poster{background-size:cover;background-position:center}
+.poster{aspect-ratio:16/9;min-height:0!important}
 .poster.has-thumb::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,.05) 40%,rgba(20,20,20,.62) 100%)}
 .poster>span{position:relative}.poster>.play{position:absolute}
 button.poster{border:0;cursor:pointer;font:inherit;text-align:left;width:100%}
@@ -73,7 +87,7 @@ button.poster{border:0;cursor:pointer;font:inherit;text-align:left;width:100%}
 .modal-close{position:absolute;right:0;top:-52px;min-width:48px;min-height:44px;border:0;background:none;color:#f8f5ee;font:inherit;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
 :focus-visible{outline:2px solid #9c4a2a;outline-offset:3px}
 @media (max-width:700px){.scene{height:360px;transform:scale(.82)}}
-@media (prefers-reduced-motion: reduce){.book{animation:none}.tile,.arrow{transition:none}html{scroll-behavior:auto}.js .reveal-io{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion: reduce){.card3d{transition:none}.book{animation:none}.arrow{transition:none}html{scroll-behavior:auto}.js .reveal-io{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -161,9 +175,8 @@ button.poster{border:0;cursor:pointer;font:inherit;text-align:left;width:100%}
 <h2 class="serif" style="margin: 0 0 64px; font-weight: 400; font-size: clamp(32px, 3.8vw, 46px); line-height: 1.1; letter-spacing: -.015em; max-width: 720px">Start free. Go deeper when you are ready to work on your own city.</h2>
 
 <article class="reveal" style="display: flex; flex-wrap: wrap; align-items: center; gap: 56px; padding: 0 0 72px">
-<button type="button" class="poster" data-modal="https://player.vimeo.com/video/1192788769?autoplay=1&amp;dnt=1" data-kind="video" data-title="Cities Are Alive — course introduction" style="flex: 1 1 460px; min-width: 0; background: linear-gradient(140deg, #2b412b 0%, #3d5a3d 60%, #56764f 100%)" aria-label="Watch the introduction to Cities Are Alive, 2 minutes 28 seconds">
+<button type="button" class="poster" data-tilt data-modal="https://player.vimeo.com/video/1192788769?autoplay=1&amp;dnt=1" data-kind="video" data-title="Cities Are Alive — course introduction" style="flex: 1 1 460px; min-width: 0; background: #2b412b url('../../assets/video-cities-are-alive.jpg') center / cover no-repeat" aria-label="Watch the introduction to Cities Are Alive, 2 minutes 28 seconds">
 <span class="play" aria-hidden="true"><svg width="20" height="22" viewBox="0 0 20 22" aria-hidden="true"><path d="M2 1.5v19l16-9.5z" fill="#f8f5ee"></path></svg></span>
-<span style="font-size: 12.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase">Watch the introduction · 2:28</span>
 </button>
 <div style="flex: 1 1 420px; min-width: 0">
 <div style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #2b412b; margin-bottom: 14px">Free · Introductory course</div>
@@ -188,9 +201,8 @@ button.poster{border:0;cursor:pointer;font:inherit;text-align:left;width:100%}
 <button type="button" class="textlink" data-modal="https://fatimebarbara.github.io/city-intelligence-course/OVERVIEW_mastercourse.html" data-kind="page" data-title="City Intelligence — course outline">See the course outline</button>
 </div>
 </div>
-<button type="button" class="poster" data-modal="https://player.vimeo.com/video/1187306030?autoplay=1&amp;dnt=1" data-kind="video" data-title="City Intelligence Mastercourse — course introduction" style="flex: 1 1 460px; min-width: 0; background: linear-gradient(140deg, #1a1a1a 0%, #3a2a22 55%, #9c4a2a 100%)" aria-label="Watch the introduction to the City Intelligence mastercourse">
+<button type="button" class="poster" data-tilt data-modal="https://player.vimeo.com/video/1187306030?autoplay=1&amp;dnt=1" data-kind="video" data-title="City Intelligence Mastercourse — course introduction" style="flex: 1 1 460px; min-width: 0; background: #1a1a1a url('../../assets/video-city-intelligence.jpg') center / cover no-repeat" aria-label="Watch the introduction to the City Intelligence mastercourse">
 <span class="play" aria-hidden="true"><svg width="20" height="22" viewBox="0 0 20 22" aria-hidden="true"><path d="M2 1.5v19l16-9.5z" fill="#f8f5ee"></path></svg></span>
-<span style="font-size: 12.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase">Watch the introduction</span>
 </button>
 </article>
 </section>
@@ -220,21 +232,21 @@ button.poster{border:0;cursor:pointer;font:inherit;text-align:left;width:100%}
 </section>
 
 <section id="tools" class="reveal" style="max-width: 1200px; margin: 0 auto; padding: 96px 32px 88px">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0; border-top: 1px solid #1a1a1a">
-<div style="padding: 36px 36px 36px 0; border-bottom: 1px solid #d9d3c4">
-<div style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #5c5c5c; margin-bottom: 12px">Toolkit</div>
+<div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(290px, 1fr))">
+<div class="card3d c-teal" data-tilt>
+<div class="tag" style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 12px">Toolkit</div>
 <h3 class="serif" style="margin: 0 0 10px; font-weight: 400; font-size: 26px; line-height: 1.2">Future of Cities Toolkit</h3>
 <p style="margin: 0 0 20px; font-size: 15.5px; color: #3a3a3a">A library of AI prompts for people working on cities. Six modules, a 25-prompt bonus library and workshop flows.</p>
 <a href="https://future-of-cities.lemonsqueezy.com/checkout/buy/839b9694-70d0-4c48-85e8-b7908cb80421" style="display: inline-block; font-size: 14.5px; font-weight: 600; padding: 12px 0">Purchase the toolkit · €89</a>
 </div>
-<div style="padding: 36px; border-bottom: 1px solid #d9d3c4">
-<div style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #5c5c5c; margin-bottom: 12px">Live</div>
+<div class="card3d c-ink" data-tilt>
+<div class="tag" style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 12px">Live</div>
 <h3 class="serif" style="margin: 0 0 10px; font-weight: 400; font-size: 26px; line-height: 1.2">Keynotes and executive workshops</h3>
 <p style="margin: 0 0 20px; font-size: 15.5px; color: #3a3a3a">Sections of the mastercourse as standalone keynotes and half-day workshops for city conferences, ministerial retreats and executive teams.</p>
 <a href="../contact/" style="display: inline-block; font-size: 14.5px; font-weight: 600; padding: 12px 0">Book a session</a>
 </div>
-<div style="padding: 36px 0 36px 36px; border-bottom: 1px solid #d9d3c4">
-<div style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #5c5c5c; margin-bottom: 12px">For universities</div>
+<div class="card3d c-teal" data-tilt>
+<div class="tag" style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 12px">For universities</div>
 <h3 class="serif" style="margin: 0 0 10px; font-weight: 400; font-size: 26px; line-height: 1.2">University module</h3>
 <p style="margin: 0 0 20px; font-size: 15.5px; color: #3a3a3a">Urban Intelligence and Governance: the index as a comparative instrument for postgraduate teaching. Available for licensing.</p>
 <a href="../contact/" style="display: inline-block; font-size: 14.5px; font-weight: 600; padding: 12px 0">Discuss licensing</a>
@@ -242,33 +254,34 @@ button.poster{border:0;cursor:pointer;font:inherit;text-align:left;width:100%}
 </div>
 </section>
 
-<section id="book" class="reveal" style="background: #fbf9f4; border-top: 1px solid #d9d3c4; border-bottom: 1px solid #d9d3c4">
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 48px 80px; max-width: 1200px; margin: 0 auto; padding: 96px 32px">
+<section id="book" style="position: relative; overflow: hidden; background: radial-gradient(120% 120% at 30% 50%, #2b412b 0%, #17241a 70%)">
+<canvas class="lights" id="lights" aria-hidden="true"></canvas>
+<div class="reveal" style="position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; gap: 48px 80px; max-width: 1200px; margin: 0 auto; padding: 110px 32px">
 <div class="book-stage" style="flex: 1 1 320px; min-width: 0">
 <div class="book"><img src="../../assets/future-of-cities-cover-720.jpg" alt="Cover of The Future of Cities by Dr. Fatime Barbara Hegyi" width="260" height="390" loading="lazy"></div>
 </div>
 <div style="flex: 1.3 1 420px; min-width: 0">
-<div style="font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #9c4a2a; margin-bottom: 16px">The book behind it all</div>
-<h2 class="serif" style="margin: 0 0 10px; font-weight: 400; font-size: clamp(32px, 3.8vw, 46px); line-height: 1.1; letter-spacing: -.015em">The Future of Cities</h2>
-<p class="serif" style="margin: 0 0 22px; font-size: 21px; font-style: italic; font-weight: 300; color: #3a3a3a">A data-driven approach to grand challenges</p>
-<p style="margin: 0 0 30px; font-size: 17px; color: #3a3a3a; max-width: 540px">Where this work began: urban life, data and collective intelligence, and how place leaders can address sustainability, health, education, security and poverty.</p>
+<div style="font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #e3c27a; margin-bottom: 16px">The book behind it all</div>
+<h2 class="serif" style="color: #f8f5ee; margin: 0 0 10px; font-weight: 400; font-size: clamp(32px, 3.8vw, 46px); line-height: 1.1; letter-spacing: -.015em">The Future of Cities</h2>
+<p class="serif" style="margin: 0 0 22px; font-size: 21px; font-style: italic; font-weight: 300; color: rgba(248,245,238,.86)">A data-driven approach to grand challenges</p>
+<p style="margin: 0 0 30px; font-size: 17px; color: rgba(248,245,238,.86); max-width: 540px">Where this work began: urban life, data and collective intelligence, and how place leaders can address sustainability, health, education, security and poverty.</p>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 22px">
-<a href="../books-future-of-cities/" class="btn btn-dark">Buy the book</a>
-<span style="font-size: 14px; color: #5c5c5c">Presented at the European Parliament · Featured in Forbes</span>
+<a href="../books-future-of-cities/" class="btn btn-light">Buy the book</a>
+<span style="font-size: 14px; color: rgba(248,245,238,.78)">Presented at the European Parliament · Featured in Forbes</span>
 </div>
 </div>
 </div>
 </section>
 
 <section class="reveal" style="max-width: 1200px; margin: 0 auto; padding: 88px 32px 96px">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 0 64px; border-top: 1px solid #1a1a1a">
-<a href="../city-intelligence-index/" class="tile">
+<div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))">
+<a href="../city-intelligence-index/" class="tile card3d c-ink" data-tilt>
 <span class="tile-eyebrow">The framework</span>
 <span class="serif tile-title">City Intelligence Index</span>
 <span class="tile-text">A diagnostic for how cities think, not another ranking. Six pillars and 150 indicators, mapped across European cities.</span>
 <span class="tile-link">Explore the index <span class="arrow" aria-hidden="true">→</span></span>
 </a>
-<a href="https://chatgpt.com/g/g-68ae0e716fec8191820dc3d40cbbf24a-urban-futures-lab" target="_blank" rel="noopener" class="tile">
+<a href="https://chatgpt.com/g/g-68ae0e716fec8191820dc3d40cbbf24a-urban-futures-lab" target="_blank" rel="noopener" class="tile card3d c-teal" data-tilt>
 <span class="tile-eyebrow">AI companion</span>
 <span class="serif tile-title">Urban Futures Lab GPT</span>
 <span class="tile-text">A custom GPT built on years of my research. Use it to decode indicators, compare case studies or test a strategy.</span>
@@ -315,15 +328,48 @@ button.poster{border:0;cursor:pointer;font:inherit;text-align:left;width:100%}
       els.forEach(function(el){el.classList.add('reveal-io');io.observe(el);});
     }
   }
-  // video stills: ask Vimeo for each video's thumbnail; the colour panel stays if this fails
-  d.querySelectorAll('.poster[data-kind="video"]').forEach(function(b){
-    var m=(b.getAttribute('data-modal')||'').match(/video\/(\d+)/); if(!m||!window.fetch) return;
-    fetch('https://vimeo.com/api/oembed.json?width=1280&url='+encodeURIComponent('https://vimeo.com/'+m[1]))
-      .then(function(r){return r.ok?r.json():null;})
-      .then(function(j){ if(!j||!j.thumbnail_url) return; var im=new Image();
-        im.onload=function(){b.style.backgroundImage='url("'+j.thumbnail_url+'")';b.classList.add('has-thumb');}; im.src=j.thumbnail_url; })
-      .catch(function(){});
-  });
+  var calm=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // 3D tilt: boxes lean a little toward the cursor
+  if(!calm && window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches){
+    d.querySelectorAll('[data-tilt]').forEach(function(el){
+      var max=el.classList.contains('poster')?3:9;
+      el.addEventListener('pointermove',function(e){
+        var r=el.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+        el.classList.add('tilting'); el.style.setProperty('--mx',((x+.5)*100).toFixed(1)+'%'); el.style.setProperty('--my',((y+.5)*100).toFixed(1)+'%');
+        el.style.transform='perspective(1100px) rotateX('+(-y*max).toFixed(2)+'deg) rotateY('+(x*max).toFixed(2)+'deg) translateY(-8px)';
+      });
+      el.addEventListener('pointerleave',function(){el.classList.remove('tilting');el.style.transform='';});
+    });
+  }
+  // moving lights behind the book
+  (function(){
+    var c=d.getElementById('lights'); if(!c||!c.getContext) return;
+    var ctx=c.getContext('2d'), sec=c.parentNode, W=0,H=0,dpr=1, pts=[], run=false, raf=0, mx=0,my=0;
+    var cols=['227,194,122','227,194,122','248,245,238','241,219,166'];
+    function size(){
+      dpr=Math.min(window.devicePixelRatio||1,2); W=sec.clientWidth; H=sec.clientHeight;
+      c.width=W*dpr; c.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+      var n=Math.round(Math.min(460,W*H/2600)); pts=[];
+      for(var i=0;i<n;i++){ var z=Math.random(); pts.push({x:Math.random()*W,y:Math.random()*H,z:z,r:.5+z*1.7,
+        vx:(.05+z*.22)*(Math.random()<.5?-1:1)*.5-.06, vy:-(.03+z*.12), p:Math.random()*6.28, s:.4+Math.random()*1.1, c:cols[i%4]}); }
+      draw(0);
+    }
+    function draw(t){
+      ctx.clearRect(0,0,W,H);
+      for(var i=0;i<pts.length;i++){ var q=pts[i];
+        if(run){ q.x+=q.vx; q.y+=q.vy; if(q.x<-6)q.x=W+6; if(q.x>W+6)q.x=-6; if(q.y<-6)q.y=H+6; }
+        var a=.3+.7*(.5+.5*Math.sin(q.p+t*.001*q.s)), x=q.x+mx*q.z*18, y=q.y+my*q.z*12;
+        ctx.beginPath(); ctx.arc(x,y,q.r,0,6.283); ctx.fillStyle='rgba('+q.c+','+(a*(.45+q.z*.55)).toFixed(3)+')'; ctx.fill();
+        if(q.z>.86){ ctx.beginPath(); ctx.arc(x,y,q.r*3.2,0,6.283); ctx.fillStyle='rgba('+q.c+','+(a*.1).toFixed(3)+')'; ctx.fill(); }
+      }
+    }
+    function loop(t){ draw(t); if(run) raf=requestAnimationFrame(loop); }
+    function start(){ if(run||calm) return; run=true; raf=requestAnimationFrame(loop); }
+    function stop(){ run=false; cancelAnimationFrame(raf); }
+    size(); window.addEventListener('resize',size);
+    if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es[0].isIntersecting?start():stop(); }).observe(sec); } else start();
+    sec.addEventListener('pointermove',function(e){ var r=sec.getBoundingClientRect(); mx=(e.clientX-r.left)/r.width-.5; my=(e.clientY-r.top)/r.height-.5; });
+  })();
   // video and outline overlay: nothing loads from Vimeo until the visitor clicks
   var modal=d.getElementById('modal'), box=d.getElementById('modal-box'), closeBtn=d.getElementById('modal-close'), last=null;
   function open(btn){
