@@ -49,6 +49,11 @@ html{scroll-behavior:smooth}
 .card3d.tilting{transition:transform .08s linear,box-shadow .3s ease}
 .card3d:hover{box-shadow:0 2px 4px rgba(26,26,26,.05),0 26px 54px rgba(26,26,26,.13)}
 .card3d>*{transform:translateZ(22px)}
+.c-gold{background:#f5ead0;border-color:#e6d5a6}.c-clay{background:#f3dfd5;border-color:#e2c2b2}.c-sage{background:#dfe9da;border-color:#c3d3bc}
+.c-teal{background:#d8e8e8;border-color:#b9d2d2}.c-ink{background:#22331f;border-color:#22331f;color:#f8f5ee}
+.c-gold .tag{color:#735613}.c-clay .tag{color:#8a3f22}.c-sage .tag{color:#2b412b}.c-teal .tag{color:#23595b}
+.c-ink .tile-eyebrow{color:#e3c27a}.c-ink .tile-text{color:rgba(248,245,238,.86)}.c-ink .tile-link{color:#f8f5ee}.tile.c-ink,.tile.c-ink:hover{color:#f8f5ee}
+.c-teal .tile-eyebrow{color:#23595b}
 .card3d>a:last-child,.card3d .tile-link{margin-top:auto}
 .book-stage{perspective:1400px;display:flex;justify-content:center;padding:20px 0}
 .book{position:relative;width:260px;height:390px;transform-style:preserve-3d;transform:rotateY(-30deg) rotateX(3deg);animation:bookturn 9s ease-in-out infinite alternate}
@@ -228,20 +233,20 @@ button.poster{border:0;cursor:pointer;font:inherit;text-align:left;width:100%}
 
 <section id="tools" class="reveal" style="max-width: 1200px; margin: 0 auto; padding: 96px 32px 88px">
 <div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(290px, 1fr))">
-<div class="card3d" data-tilt>
-<div style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #5c5c5c; margin-bottom: 12px">Toolkit</div>
+<div class="card3d c-gold" data-tilt>
+<div class="tag" style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 12px">Toolkit</div>
 <h3 class="serif" style="margin: 0 0 10px; font-weight: 400; font-size: 26px; line-height: 1.2">Future of Cities Toolkit</h3>
 <p style="margin: 0 0 20px; font-size: 15.5px; color: #3a3a3a">A library of AI prompts for people working on cities. Six modules, a 25-prompt bonus library and workshop flows.</p>
 <a href="https://future-of-cities.lemonsqueezy.com/checkout/buy/839b9694-70d0-4c48-85e8-b7908cb80421" style="display: inline-block; font-size: 14.5px; font-weight: 600; padding: 12px 0">Purchase the toolkit · €89</a>
 </div>
-<div class="card3d" data-tilt>
-<div style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #5c5c5c; margin-bottom: 12px">Live</div>
+<div class="card3d c-clay" data-tilt>
+<div class="tag" style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 12px">Live</div>
 <h3 class="serif" style="margin: 0 0 10px; font-weight: 400; font-size: 26px; line-height: 1.2">Keynotes and executive workshops</h3>
 <p style="margin: 0 0 20px; font-size: 15.5px; color: #3a3a3a">Sections of the mastercourse as standalone keynotes and half-day workshops for city conferences, ministerial retreats and executive teams.</p>
 <a href="../contact/" style="display: inline-block; font-size: 14.5px; font-weight: 600; padding: 12px 0">Book a session</a>
 </div>
-<div class="card3d" data-tilt>
-<div style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #5c5c5c; margin-bottom: 12px">For universities</div>
+<div class="card3d c-sage" data-tilt>
+<div class="tag" style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 12px">For universities</div>
 <h3 class="serif" style="margin: 0 0 10px; font-weight: 400; font-size: 26px; line-height: 1.2">University module</h3>
 <p style="margin: 0 0 20px; font-size: 15.5px; color: #3a3a3a">Urban Intelligence and Governance: the index as a comparative instrument for postgraduate teaching. Available for licensing.</p>
 <a href="../contact/" style="display: inline-block; font-size: 14.5px; font-weight: 600; padding: 12px 0">Discuss licensing</a>
@@ -270,13 +275,13 @@ button.poster{border:0;cursor:pointer;font:inherit;text-align:left;width:100%}
 
 <section class="reveal" style="max-width: 1200px; margin: 0 auto; padding: 88px 32px 96px">
 <div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))">
-<a href="../city-intelligence-index/" class="tile card3d" data-tilt>
+<a href="../city-intelligence-index/" class="tile card3d c-teal" data-tilt>
 <span class="tile-eyebrow">The framework</span>
 <span class="serif tile-title">City Intelligence Index</span>
 <span class="tile-text">A diagnostic for how cities think, not another ranking. Six pillars and 150 indicators, mapped across European cities.</span>
 <span class="tile-link">Explore the index <span class="arrow" aria-hidden="true">→</span></span>
 </a>
-<a href="https://chatgpt.com/g/g-68ae0e716fec8191820dc3d40cbbf24a-urban-futures-lab" target="_blank" rel="noopener" class="tile card3d" data-tilt>
+<a href="https://chatgpt.com/g/g-68ae0e716fec8191820dc3d40cbbf24a-urban-futures-lab" target="_blank" rel="noopener" class="tile card3d c-ink" data-tilt>
 <span class="tile-eyebrow">AI companion</span>
 <span class="serif tile-title">Urban Futures Lab GPT</span>
 <span class="tile-text">A custom GPT built on years of my research. Use it to decode indicators, compare case studies or test a strategy.</span>
